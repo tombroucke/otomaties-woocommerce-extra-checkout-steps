@@ -1,5 +1,5 @@
 {
-    "name": "tombroucke/woocommerce-extra-checkout-steps",
+    "name": "tombroucke/otomaties-woocommerce-extra-checkout-steps",
     "autoload": {
         "psr-4": {
             "Otomaties\\WooCommerceExtraCheckoutSteps\\": "app/"
