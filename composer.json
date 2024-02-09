@@ -1,0 +1,22 @@
+{
+    "name": "tombroucke/woocommerce-extra-checkout-steps",
+    "autoload": {
+        "psr-4": {
+            "Otomaties\\WooCommerceExtraCheckoutSteps\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tom Broucke",
+            "email": "tom@tombroucke.be"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^10.43",
+        "illuminate/container": "^10.43",
+        "illuminate/config": "^10.43",
+        "stoutlogic/acf-builder": "^1.12"
+    },
+    "config": {
+    }
+}
