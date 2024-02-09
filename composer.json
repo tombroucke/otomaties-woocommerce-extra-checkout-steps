@@ -11,6 +11,7 @@
             "email": "tom@tombroucke.be"
         }
     ],
+    "type": "wordpress-plugin",
     "require": {
         "illuminate/support": "^10.43",
         "illuminate/container": "^10.43",
