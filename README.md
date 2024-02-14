@@ -18,7 +18,7 @@ This plugin provides a way to add extra steps to the checkout process
 	add_shortcode('checkout_billing_information', function () {
 		return view('shortcodes.checkout-personal-details', [
 			'adminPostUrl' => admin_url('admin-post.php'),
-            'data' => WooCommerceExtraCheckoutSteps()->make(\Otomaties\WooCommerceExtraCheckoutSteps\Helpers\Steps::class)->find(get_the_ID())->getData(),
+            		'data' => WooCommerceExtraCheckoutSteps()->make(\Otomaties\WooCommerceExtraCheckoutSteps\Helpers\Steps::class)->find(get_the_ID())->getData(),
 		])->toHtml();
 	});
 	```
