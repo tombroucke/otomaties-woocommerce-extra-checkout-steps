@@ -14,7 +14,6 @@ This plugin provides a way to add extra steps to the checkout process
 2. Add one or more extra checkout pages e.g. checkout/billing, checkout/shipping, checkout/overview
 3. Add these pages in the correct order in the "Extra Checkout Steps" options page.
 4. Create a shortcode for each extra page. e.g.:
-
 	```php
 	add_shortcode('checkout_billing_information', function () {
 		return view('shortcodes.checkout-personal-details', [
@@ -24,7 +23,6 @@ This plugin provides a way to add extra steps to the checkout process
 	});
 	```
 5. Add the view for the shortcode. Make sure to add the fields for extra steps, and add a unique name to it (`WooCommerceExtraCheckoutSteps()->make('form-fields', ['name' => 'personal_details'])`).
-
 	```blade
 	@if(function_exists('WooCommerceExtraCheckoutSteps'))
 	{!! woocommerce_output_all_notices() !!}
@@ -47,10 +45,9 @@ This plugin provides a way to add extra steps to the checkout process
 	@endif
 	```
 6. For each page: add some validation logic if needed:
-
-```php
+	```php
 	add_action('woocommerce_extra_checkout_steps_verify_fields', function($stepName, $currentStep, $nextStep, $steps) {
-        if ($stepName === 'personal_details') {
+	if ($stepName === 'personal_details') {
 			$fields = [
 				'billing_first_name' => [
 					'label' => __('First name', 'text-domain'),
@@ -70,19 +67,17 @@ This plugin provides a way to add extra steps to the checkout process
 				],
 				// ...
 			];
-            $currentStep->verifyFields($fields);
-        }
+	    $currentStep->verifyFields($fields);
+	}
 	}, 10, 4)
 	```
 7. The data is saved to the step in `WC()->session`. If needed, you can use a hook to save the data elsewhere:
-
 	```php
 	add_action('woocommerce_extra_checkout_steps_data_saved', function($callback, $data, $currentStep, $nextStep) {
 		// save the data
 	}, 10, 4)
 	```
 8. The default WooCommerce fields are saved by WooCommerce. Possibly, you need to save custom fields to your order. You can use the `woocommerce_checkout_order_processed` for this.
-
 	```php
 	add_action('woocommerce_checkout_order_processed', function ($orderId, $postedData, $order) {
 		WooCommerceExtraCheckoutSteps()->make(\Otomaties\WooCommerceExtraCheckoutSteps\Helpers\Steps::class)
