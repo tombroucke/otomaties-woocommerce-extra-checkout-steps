@@ -65,6 +65,42 @@ This plugin provides a way to add extra steps to the checkout process
 					'label' => __('Last name', 'text-domain'),
 					'validate' => ['required']
 				],
+				'billing_postcode' => [
+					'label' => __('Postcode', 'remmerie'),
+					'validate' => [
+					    'required',
+					    [
+						'function' => function ($postcode) {
+						    return \WC_Validation::is_postcode($postcode, isset($_POST['billing_country']) ? $_POST['billing_country'] : null);
+						},
+						'message' => sprintf(__( '%s is not a valid postcode / ZIP.', 'woocommerce' ), '<strong>' .  __('Postcode', 'remmerie') . '</strong>')
+					    ]
+					]
+				],
+				'billing_phone' => [
+					'label' => __('Phone', 'remmerie'),
+					'validate' => [
+					    'required',
+					    [
+						'function' => function ($phone) {
+						    return \WC_Validation::is_phone($phone);
+						},
+						'message' => sprintf(__( '%s is not a valid phone number.', 'woocommerce' ), '<strong>' .  __('Phone', 'remmerie') . '</strong>')
+					    ]
+					]
+				],
+				'billing_email' => [
+					'label' => __('Email', 'remmerie'),
+					'validate' => [
+					    'required',
+					    [
+						'function' => function ($email) {
+						    return \WC_Validation::is_email($email);
+						},
+						'message' => sprintf(__( '%s is not a valid email address.', 'woocommerce' ), '<strong>' .  __('Email', 'remmerie') . '</strong>')
+					    ]
+					]
+				],
 				// ...
 			];
 	    $currentStep->verifyFields($fields);
