@@ -21,7 +21,7 @@ class View
         }
 
         extract($context, EXTR_SKIP);
-        include apply_filters('plugin_boilerplate_view', $view, $context);
+        include apply_filters('woocommerce_extra_checkout_steps_view', $view, $context);
     }
 
     public function return(string $view, array $context = []) : string
