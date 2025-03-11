@@ -10,7 +10,7 @@ use Otomaties\WooCommerceExtraCheckoutSteps\Helpers\Loader;
 /**
  * Plugin Name:       Otomaties WooCommerce Extra Checkout Steps
  * Description:       Add extra steps to the checkout process.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Tom Broucke
  * Author URI:        https://tombroucke.be/
  * License:           GPL-2.0+
